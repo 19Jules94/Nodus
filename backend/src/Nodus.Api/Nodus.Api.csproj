@@ -10,4 +10,13 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Nodus.Application\Nodus.Application.csproj" />
+      <ProjectReference Include="..\..\Nodus.Infrastructure\Nodus.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
