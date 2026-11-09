@@ -11,4 +11,9 @@
       <ProjectReference Include="..\Nodus.Domain\Nodus.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Persistence\" />
+      <Folder Include="Storage\" />
+    </ItemGroup>
+
 </Project>
