@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Nodus.Application/Nodus.Application.csproj" />
+  <Project Path="Nodus.Domain/Nodus.Domain.csproj" />
+  <Project Path="Nodus.Infrastructure/Nodus.Infrastructure.csproj" />
   <Project Path="src/Nodus.Api/Nodus.Api.csproj" />
 </Solution>
