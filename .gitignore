@@ -60,3 +60,5 @@ nunit-*.xml
 
 # JetBrains Rider
 .idea/
+
+/backend/Nodus.sln.DotSettings.user

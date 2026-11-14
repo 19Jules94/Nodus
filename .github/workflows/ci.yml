@@ -1,0 +1,25 @@
+name: Nodus CI
+
+on:
+  push: 
+    branches: [main]
+  pull_request: 
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v6
+        with: 
+          dotnet-version: 10.0.x
+      - run: dotnet build backend/Nodus.slnx
+      - name: Test con dotnet
+        run: dotnet  test --no-build backend/Nodus.slnx
+          
+
+      
+  
