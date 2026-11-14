@@ -3,4 +3,5 @@
   <Project Path="src/Nodus.Application/Nodus.Application.csproj" />
   <Project Path="src/Nodus.Domain/Nodus.Domain.csproj" />
   <Project Path="src/Nodus.Infrastructure/Nodus.Infrastructure.csproj" />
+  <Project Path="test/Nodus.Application.Tests/Nodus.Application.Tests.csproj" />
 </Solution>
