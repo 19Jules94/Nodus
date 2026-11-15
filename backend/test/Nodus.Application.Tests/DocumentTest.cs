@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System.Text;
+using Moq;
 using Nodus.Application.Interfaces;
 using Nodus.Application.Services;
 using Nodus.Domain.Entities;
@@ -38,7 +39,8 @@ public class DocumentTest
             .Returns(document);
 
         var service = new DocumentService(mockReader.Object);
-        using var stream = new MemoryStream();
+        var bytes = Encoding.UTF8.GetBytes("%PDF-1.7");
+        using var stream = new MemoryStream(bytes);
 
         // Act
         var documentDto = service.GetDocument(stream, "sample.pdf");
@@ -48,5 +50,23 @@ public class DocumentTest
         Assert.Equal("Hola Nodus desde un documento creado con Moq",
             documentDto.ContentDocument);
         Assert.Equal("sample.pdf", documentDto.PathDocument);
+    }
+
+    [Fact]
+    public void GetDocument_WhenFileIsNotPdf_ThrowsInvalidDataException()
+    {
+        // Arrange
+        var mockReader = new Mock<IDocumentReader>();
+        var service = new DocumentService(mockReader.Object);
+        var bytes = Encoding.UTF8.GetBytes("Hola Nodus");
+        
+        using var stream = new MemoryStream(bytes);
+      
+        // Act
+        Action act = () => service.GetDocument(stream, "archivo.txt");
+
+        // Assert
+        Assert.Throws<Exception>(act);
+        
     }
 }

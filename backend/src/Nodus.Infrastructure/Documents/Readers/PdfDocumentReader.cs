@@ -4,8 +4,9 @@ public class PdfDocumentReader : IDocumentReader
 {
     public Document GetDocumentContent(Stream stream)
     {
+        
         using PdfDocument document = PdfDocument.Open(stream);
-
+        
         StringBuilder sb = new StringBuilder();
 
         foreach (var page in document.GetPages())
