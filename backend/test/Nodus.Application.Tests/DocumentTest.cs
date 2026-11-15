@@ -39,7 +39,8 @@ public class DocumentTest
             .Returns(document);
 
         var service = new DocumentService(mockReader.Object);
-        using var stream = new MemoryStream();
+        var bytes = Encoding.UTF8.GetBytes("%PDF-1.7");
+        using var stream = new MemoryStream(bytes);
 
         // Act
         var documentDto = service.GetDocument(stream, "sample.pdf");
